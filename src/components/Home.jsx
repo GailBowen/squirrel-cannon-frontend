@@ -21,7 +21,7 @@ function Home() {
                         <div className="card-body">
                             <h5 className="card-title">Create Flashcards</h5>
                             <p className="card-text">Add new flashcards to your collection.</p>
-                            <Link to="/create" className="btn btn-success">Create Flashcard</Link>
+                            <Link to="/create" className="btn btn-success">Create Flashcards</Link>
                         </div>
                     </div>
 
