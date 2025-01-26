@@ -59,7 +59,7 @@ function CreateFlashcard() {
                         required
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group mb-4">
                     <label htmlFor="subject">Subject:</label>
                     <select
                         className="form-control"

@@ -33,11 +33,12 @@ function App() {
           </Routes>
         </main>
 
-        <footer className="border-top footer text-muted">
+        <footer className="footer border-top text-muted">
           <div className="container">
             &copy; {new Date().getFullYear()} - The Squirrel Cannon
           </div>
         </footer>
+
       </div>
     </Router>
   )

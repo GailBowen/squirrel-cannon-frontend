@@ -47,7 +47,7 @@ function FlashcardReview() {
                 <div className="card-body">
                     <h5 className="card-title">Question:</h5>
                     <p className="card-text">{currentCard.question}</p>
-                    <div className="form-group">
+                    <div className="form-group mb-4">
                         <input
                             type="text"
                             className="form-control"
