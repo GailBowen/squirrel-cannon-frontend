@@ -1,5 +1,5 @@
-- Fix buttons going blue on focus!
-- Tab order needs sorting.
-- Show how many right today in this subject and overall!
-- Title says 'Vite + React'.
-- Check Azure DB costs.
+- [ ] Fix buttons going blue on focus!
+- [ ] Tab order needs sorting.
+- [ ] Show how many right today in this subject and overall!
+- [x] Title says 'Vite + React'.
+- [ ] Check Azure DB costs.
