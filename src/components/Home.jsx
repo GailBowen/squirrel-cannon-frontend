@@ -5,7 +5,7 @@ import squirrelIcon from '../images/icons8-squirrel-94.png'
 function Home() {
     return (
         <div className="container">
-            <h1 className="text-center">Welcome to Squirrel Cannon</h1>
+            <h1 className="text-center">Welcome to The Squirrel Cannon</h1>
 
             <div className="row mt-4">
                 <div className="col-md-8 offset-md-2">
@@ -32,7 +32,7 @@ function Home() {
                                 Based on the Leitner system, Squirrel Cannon's spaced repetition algorithm organizes your flashcards into boxes.
                                  When you get one right, the card advances to a higher box with a longer review interval. 
                                  If you get one wrong, the cards returns to the first box for more frequent practice. 
-                                Once you've got a card right six times, you've clearly learnt it and you won't see it again. Test!
+                                Once you've got a card right six times, you've clearly learnt it and you won't see it again. 
                             </p>
                             <div className="mt-3 text-center">
                                 <img src={squirrelIcon} alt="Squirrel Icon" />
