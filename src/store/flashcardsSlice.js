@@ -2,17 +2,17 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const fetchFlashcards = createAsyncThunk('flashcards/fetchFlashcards', async (subjectId) => {
-    const response = await axios.get(`https://localhost:44363/api/flashcard/review/${subjectId}`)
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/flashcard/review/${subjectId}`)
     return response.data
 })
 
 export const reviewCard = createAsyncThunk('flashcards/reviewCard', async ({ id, correct }) => {
-    await axios.post('https://localhost:44363/api/flashcard/review', { id, correct })
+    await axios.post('${import.meta.env.VITE_API_BASE_URL}/api/flashcard/review', { id, correct })
     return { id, correct }
 })
 
 export const createFlashcard = createAsyncThunk('flashcards/createFlashcard', async (flashcardData) => {
-    const response = await axios.post('https://localhost:44363/api/flashcard', flashcardData)
+    const response = await axios.post('${import.meta.env.VITE_API_BASE_URL}/api/flashcard', flashcardData)
     return response.data
 })
 

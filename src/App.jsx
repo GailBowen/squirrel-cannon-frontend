@@ -38,7 +38,6 @@ function App() {
             &copy; {new Date().getFullYear()} - The Squirrel Cannon
           </div>
         </footer>
-
       </div>
     </Router>
   )

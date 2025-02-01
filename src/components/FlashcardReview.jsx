@@ -63,7 +63,6 @@ function FlashcardReview() {
                         <>
                             <h5 className="mt-4">Correct Answer:</h5>
                             <p>{currentCard.answer}</p>
-                            <p>Your answer: {userAnswer}</p>
                             <p>{userAnswer.toLowerCase().trim() === currentCard.answer.toLowerCase().trim() ?
                                 "Correct!" : "Incorrect. Try again next time!"}
                             </p>

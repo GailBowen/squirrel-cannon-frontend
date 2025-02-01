@@ -2,9 +2,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const fetchSubjects = createAsyncThunk('subjects/fetchSubjects', async () => {
-    const response = await axios.get('https://localhost:44363/api/subjects')
-    return response.data
-})
+    console.log(
+      '%cAPI Base URL: ' + import.meta.env.VITE_API_BASE_URL,
+      'color: red; font-size: 20px; font-weight: bold;'
+    );
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/subjects`);
+    return response.data;
+});
 
 const subjectsSlice = createSlice({
     name: 'subjects',
