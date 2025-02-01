@@ -32,7 +32,7 @@ function Home() {
                                 Based on the Leitner system, Squirrel Cannon's spaced repetition algorithm organizes your flashcards into boxes.
                                  When you get one right, the card advances to a higher box with a longer review interval. 
                                  If you get one wrong, the cards returns to the first box for more frequent practice. 
-                                Once you've got a card right six times, you've clearly learnt it and you won't see it again.
+                                Once you've got a card right six times, you've clearly learnt it and you won't see it again. Test!
                             </p>
                             <div className="mt-3 text-center">
                                 <img src={squirrelIcon} alt="Squirrel Icon" />
