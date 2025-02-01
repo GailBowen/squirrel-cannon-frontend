@@ -7,12 +7,12 @@ export const fetchFlashcards = createAsyncThunk('flashcards/fetchFlashcards', as
 })
 
 export const reviewCard = createAsyncThunk('flashcards/reviewCard', async ({ id, correct }) => {
-    await axios.post('${import.meta.env.VITE_API_BASE_URL}/api/flashcard/review', { id, correct })
+    await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/flashcard/review`, { id, correct })
     return { id, correct }
 })
 
 export const createFlashcard = createAsyncThunk('flashcards/createFlashcard', async (flashcardData) => {
-    const response = await axios.post('${import.meta.env.VITE_API_BASE_URL}/api/flashcard', flashcardData)
+    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/flashcard`, flashcardData)
     return response.data
 })
 
