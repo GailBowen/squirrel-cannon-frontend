@@ -29,7 +29,10 @@ function Home() {
                         <div className="card-body">
                             <h5 className="card-title">Smart Review System</h5>
                             <p className="card-text">
-                                Based on the Leitner system, Squirrel Cannon's spaced repetition algorithm organizes your flashcards into learning boxes. Cards move between boxes based on your performance - correct answers advance to higher boxes with longer review intervals, while missed cards return to the first box for more frequent practice. Once you've got a card right six times, it's considered learnt and you won't see it again.
+                                Based on the Leitner system, Squirrel Cannon's spaced repetition algorithm organizes your flashcards into boxes.
+                                 When you get one right, the card advances to a higher box with a longer review interval. 
+                                 If you get one wrong, the cards returns to the first box for more frequent practice. 
+                                Once you've got a card right six times, you've clearly learnt it and you won't see it again.
                             </p>
                             <div className="mt-3 text-center">
                                 <img src={squirrelIcon} alt="Squirrel Icon" />
