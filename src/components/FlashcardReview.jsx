@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchFlashcards, reviewCard, nextCard } from '../store/flashcardsSlice';
+import { fetchBoxStats } from '../store/boxStatusSlice';
+import BoxStatsChart from '../components/BoxStatsChart';
 
 function FlashcardReview() {
     const { subjectId } = useParams();
@@ -12,6 +14,7 @@ function FlashcardReview() {
 
     useEffect(() => {
         dispatch(fetchFlashcards(subjectId));
+        dispatch(fetchBoxStats());
     }, [dispatch, subjectId]);
 
     if (status === 'loading') {
@@ -28,9 +31,10 @@ function FlashcardReview() {
 
     const currentCard = flashcards[currentCardIndex];
 
-    const handleCheckAnswer = () => {
+    const handleCheckAnswer = async () => {
         const isCorrect = userAnswer.toLowerCase().trim() === currentCard.answer.toLowerCase().trim();
-        dispatch(reviewCard({ id: currentCard.id, correct: isCorrect }));
+        await dispatch(reviewCard({ id: currentCard.id, correct: isCorrect }));
+        dispatch(fetchBoxStats());
         setShowResult(true);
     };
 
@@ -74,6 +78,7 @@ function FlashcardReview() {
             <div className="mt-3">
                 Card {currentCardIndex + 1} of {flashcards.length}
             </div>
+            <BoxStatsChart />
         </div>
     );
 }
