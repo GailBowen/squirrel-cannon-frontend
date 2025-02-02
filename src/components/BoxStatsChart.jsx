@@ -22,31 +22,33 @@ export default function BoxStatsChart() {
     if (status ===  'failed') return <div>Error: {error}</div>;
 
     return (
-        <div style={{ height: '400px', width:'100%'}}>
-           <h4 className="mb-4">Flashcards in each Cannon</h4>
-           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={stats}>
-                <CartesianGrid strokeDasharray="3 3"/>
-                    <XAxis dataKey="box"
-                            label ={{
-                                value:'Cannon Number',
-                                position: 'bottom'
-                            }}
-                    ></XAxis>
-                    <YAxis label={{
-                        value: 'Card Count',
-                        angle: -90,
-                        position: 'insideLeft'
-                    }}></YAxis>
+        <div style={{ height: '350px', width: '100%', marginBottom: '2rem' }}>
+            <h4 className="mb-4">Flashcards per Cannon</h4>
+            <ResponsiveContainer width="100%" height="80%">
+                <BarChart data={stats}>
+                    <CartesianGrid strokeDasharray="3 3"/>
+                    <XAxis 
+                        dataKey="box"
+                        label={{
+                            value: 'Cannon Number',
+                            position: 'bottom'
+                        }}
+                    />
+                    <YAxis 
+                        label={{
+                            value: 'Card Count',
+                            angle: -90,
+                            position: 'insideLeft'
+                        }}
+                    />
                     <Tooltip/>
                     <Bar 
                         dataKey="count"
                         fill="#C17F59"
-                        name="Number of Cards">
-                    </Bar>
-                
-            </BarChart>
-           </ResponsiveContainer>
+                        name="Number of Cards"
+                    />
+                </BarChart>
+            </ResponsiveContainer>
         </div>
     );
 }
