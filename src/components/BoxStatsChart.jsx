@@ -22,8 +22,16 @@ export default function BoxStatsChart() {
     if (status ===  'failed') return <div>Error: {error}</div>;
 
     return (
-        <div style={{ height: '350px', width: '100%', marginBottom: '2rem' }}>
-            <h4 className="mb-4">Flashcards per Cannon</h4>
+        <div style={{ 
+            height: '350px', 
+            width: '100%', 
+            marginBottom: '2rem',
+            border: '1px solid #e0e0e0',
+            borderRadius: '8px',
+            padding: '1rem',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+        }}>
+            <h4 className="mb-4" style={{ paddingLeft: '1rem' }}>Flashcards per Cannon</h4>
             <ResponsiveContainer width="100%" height="80%">
                 <BarChart data={stats}>
                     <CartesianGrid strokeDasharray="3 3"/>
