@@ -38,7 +38,19 @@ export default function BoxStatsChart() {
                     <XAxis 
                         dataKey="box"
                         interval={0}
-                        tickFormatter={(value) => value === 8 ? "Done" : value}
+                        tickFormatter={(value) => {
+                            const words = {
+                                1: 'One',
+                                2: 'Two',
+                                3: 'Three',
+                                4: 'Four',
+                                5: 'Five',
+                                6: 'Six',
+                                7: 'Seven',
+                                8: 'Done'
+                            };
+                            return words[value] || value;
+                        }}
                         label={{
                             value: 'Cannons',
                             position: 'insideBottom',
