@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LabelList } from 'recharts';
 
 import { useDispatch , useSelector } from 'react-redux';
 
@@ -40,7 +40,7 @@ export default function BoxStatsChart() {
                         interval={0}
                         tickFormatter={(value) => value === 8 ? "Done" : value}
                         label={{
-                            value: 'Cannon',
+                            value: 'Cannons',
                             position: 'insideBottom',
                             offset: -5,
                             margin: 10
@@ -57,8 +57,19 @@ export default function BoxStatsChart() {
                     <Bar 
                         dataKey="count"
                         fill="#C17F59"
-                        name="Number of Cards"
-                    />
+                        name="Number of Cards">
+
+                    <LabelList
+                        dataKey="count"
+                        position="top"
+                        fill="#C17F59"
+                        >
+                    </LabelList>
+
+                    </Bar>
+                        
+                    
+                   
                 </BarChart>
             </ResponsiveContainer>
         </div>
