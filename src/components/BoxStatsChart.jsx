@@ -41,7 +41,7 @@ export default function BoxStatsChart() {
                     <Tooltip/>
                     <Bar 
                         dataKey="count"
-                        fill="#8884d8"
+                        fill="#C17F59"
                         name="Number of Cards">
                     </Bar>
                 
