@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchSubjects } from '../store/subjectsSlice';
+import BoxStatsChart from '../components/BoxStatsChart';
 
 function SubjectList() {
     const dispatch = useDispatch();
@@ -38,6 +39,7 @@ function SubjectList() {
                     </div>
                 ))}
             </div>
+            <BoxStatsChart/>
         </div>
     );
 }
