@@ -27,12 +27,10 @@ function Home() {
 
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">Smart Review System</h5>
+                            <h5 className="card-title">Leitner Method of Spaced Repetition</h5>
                             <p className="card-text">
-                                Based on the Leitner system, Squirrel Cannon's spaced repetition algorithm organizes your flashcards into boxes.
-                                 When you get one right, the card advances to a higher box with a longer review interval. 
-                                 If you get one wrong, the cards returns to the first box for more frequent practice. 
-                                Once you've got a card right six times, you've clearly learnt it and you won't see it again. 
+                            Squirrel Cannon stores your flashcards in 7 different cannons. To win the game, you need to get a card past
+                            cannon 7. You'll need to recall a card seven times with longer delays between each recall. If a card is in cannon 1, you'll be asked it every day till you get it right. Once it's in cannon 2, every other day. Then the intervals are 4, 8, 16, 32 then 64 days. If you recall it after 64 days, you can expect to remember it for at least a year if not for life! (Squirrel Cannon was inspired by <a href="https://www.goodreads.com/book/show/19661852-fluent-forever">Fluent Forever</a> by Gabriel Wyner.)
                             </p>
                             <div className="mt-3 text-center">
                                 <img src={squirrelIcon} alt="Squirrel Icon" />

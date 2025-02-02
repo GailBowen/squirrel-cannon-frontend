@@ -3,3 +3,4 @@
 - [ ] Show how many right today in this subject and overall!
 - [x] Title says 'Vite + React'.
 - [ ] Check Azure DB costs.
+- [ ] If there is only one card left for today, it repeats that card.
