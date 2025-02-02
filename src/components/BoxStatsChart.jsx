@@ -29,9 +29,12 @@ export default function BoxStatsChart() {
                     <CartesianGrid strokeDasharray="3 3"/>
                     <XAxis 
                         dataKey="box"
+                        interval={0}
                         label={{
-                            value: 'Cannon Number',
-                            position: 'bottom'
+                            value: 'Cannon',
+                            position: 'insideBottom',
+                            offset: -5,
+                            margin: 10
                         }}
                     />
                     <YAxis 
