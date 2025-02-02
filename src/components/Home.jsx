@@ -27,10 +27,10 @@ function Home() {
 
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">Leitner Method of Spaced Repetition</h5>
+                            <h5 className="card-title">Spaced Repetition Algorithm</h5>
                             <p className="card-text">
-                            Squirrel Cannon stores your flashcards in 7 different cannons. To win the game, you need to get a card past
-                            cannon 7. You'll need to recall a card seven times with longer delays between each recall. If a card is in cannon 1, you'll be asked it every day till you get it right. Once it's in cannon 2, every other day. Then the intervals are 4, 8, 16, 32 then 64 days. If you recall it after 64 days, you can expect to remember it for at least a year if not for life! (Squirrel Cannon was inspired by <a href="https://www.goodreads.com/book/show/19661852-fluent-forever">Fluent Forever</a> by Gabriel Wyner.)
+                            Inspired by an explanation of the Leitner method in <a href="https://www.goodreads.com/book/show/19661852-fluent-forever">Fluent Forever</a> by Gabriel Wyner, <br/><b>Squirrel Cannon</b> stores your flashcards in 7 different cannons. To win the game, you need to get a card past
+                            cannon 7. You'll need to recall a card seven times with longer delays between each recall. If a card is in cannon 1, you'll be asked it every day till you get it right. Once it's in cannon 2, every other day. Then the intervals are 4, 8, 16, 32 then 64 days. If you recall it after 64 days, you can expect to remember it for at least a year if not for life!
                             </p>
                             <div className="mt-3 text-center">
                                 <img src={squirrelIcon} alt="Squirrel Icon" />
