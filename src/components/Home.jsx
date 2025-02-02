@@ -30,7 +30,7 @@ function Home() {
                             <h5 className="card-title">How it Works</h5>
                             <p className="card-text">
                             Inspired by an explanation of the Leitner method by Gabriel Wyner in <a href="https://www.goodreads.com/book/show/19661852-fluent-forever">Fluent Forever</a> <br/><b>Squirrel Cannon</b> stores your flashcards in 7 different cannons. To win the game, you need to get a card past
-                            cannon 7. You'll need to recall a card seven times with longer delays between each recall. If a card is in cannon 1, you'll be asked it every day till you get it right. Once it's in cannon 2, every other day. Then the intervals are 4, 8, 16, 32 then 64 days. If you recall it after 64 days, you can expect to remember it for at least a year if not for life!
+                            cannon 7. You'll need to recall a card seven times with longer delays between each recall. If a card is in cannon 1, you'll be asked it every day till you get it right. Once it's in cannon 2, every other day. Then the interval doubles each time reaching 64 days cannon 7. If you can recall after over two months, you can expect to remember it for at least a year if not for life!
                             </p>
                             <div className="mt-3 text-center">
                                 <img src={squirrelIcon} alt="Squirrel Icon" />
