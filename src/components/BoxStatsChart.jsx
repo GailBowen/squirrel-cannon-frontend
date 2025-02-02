@@ -53,17 +53,13 @@ export default function BoxStatsChart() {
                         }}
                         label={{
                             value: 'Cannons',
-                            position: 'insideBottom',
-                            offset: -5,
-                            margin: 10
+                            position: 'bottom',
+                            offset: 0,
+                            dy: 20
                         }}
                     />
                     <YAxis 
-                        label={{
-                            value: 'Card Count',
-                            angle: -90,
-                            position: 'insideLeft'
-                        }}
+                       
                     />
                     <Tooltip/>
                     <Bar 
