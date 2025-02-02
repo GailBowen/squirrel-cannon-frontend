@@ -32,8 +32,11 @@ export default function BoxStatsChart() {
             boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
         }}>
             <h4 className="mb-4" style={{ paddingLeft: '1rem' }}>Flashcards per Cannon</h4>
-            <ResponsiveContainer width="100%" height="80%">
-                <BarChart data={stats}>
+            <ResponsiveContainer width="100%" height="85%">
+                <BarChart 
+                    data={stats}
+                    margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                >
                     <CartesianGrid strokeDasharray="3 3"/>
                     <XAxis 
                         dataKey="box"
@@ -51,17 +54,26 @@ export default function BoxStatsChart() {
                             };
                             return words[value] || value;
                         }}
-                        label={{
-                            value: 'Cannons',
-                            position: 'bottom',
-                            offset: 0,
-                            dy: 20
-                        }}
                     />
                     <YAxis 
                        
                     />
-                    <Tooltip/>
+                   <Tooltip 
+                        cursor={false}
+                        content={({ payload }) => {
+                            if (!payload || !payload.length) return null;
+                            return (
+                                <div style={{
+                                    backgroundColor: 'white',
+                                    padding: '8px',
+                                    border: '1px solid #ccc',
+                                    borderRadius: '4px'
+                                }}>
+                                    <p style={{ margin: 0 }}>{payload[0].value}</p>
+                                </div>
+                            );
+                        }}
+                    />
                     <Bar 
                         dataKey="count"
                         fill="#C17F59"
