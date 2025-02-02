@@ -5,11 +5,11 @@ import squirrelIcon from '../images/icons8-squirrel-94.png'
 function Home() {
     return (
         <div className="container">
-            <h1 className="text-center">Welcome to The Squirrel Cannon</h1>
+            <h1 className="text-center">Welcome to Squirrel Cannon</h1>
 
             <div className="row mt-4">
                 <div className="col-md-8 offset-md-2">
-                    <div className="card mb-4">
+                    <div className="card mb-3">
                         <div className="card-body">
                             <h5 className="card-title">Start Learning</h5>
                             <p className="card-text">Review your flashcards and track your progress.</p>
@@ -17,7 +17,7 @@ function Home() {
                         </div>
                     </div>
 
-                    <div className="card mb-4">
+                    <div className="card mb-3">
                         <div className="card-body">
                             <h5 className="card-title">Create Flashcards</h5>
                             <p className="card-text">Add new flashcards to your collection.</p>
@@ -27,9 +27,9 @@ function Home() {
 
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">Spaced Repetition Algorithm</h5>
+                            <h5 className="card-title">How it Works</h5>
                             <p className="card-text">
-                            Inspired by an explanation of the Leitner method in <a href="https://www.goodreads.com/book/show/19661852-fluent-forever">Fluent Forever</a> by Gabriel Wyner, <br/><b>Squirrel Cannon</b> stores your flashcards in 7 different cannons. To win the game, you need to get a card past
+                            Inspired by an explanation of the Leitner method by Gabriel Wyner in <a href="https://www.goodreads.com/book/show/19661852-fluent-forever">Fluent Forever</a>, <br/><b>Squirrel Cannon</b> stores your flashcards in 7 different cannons. To win the game, you need to get a card past
                             cannon 7. You'll need to recall a card seven times with longer delays between each recall. If a card is in cannon 1, you'll be asked it every day till you get it right. Once it's in cannon 2, every other day. Then the intervals are 4, 8, 16, 32 then 64 days. If you recall it after 64 days, you can expect to remember it for at least a year if not for life!
                             </p>
                             <div className="mt-3 text-center">

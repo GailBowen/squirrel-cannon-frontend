@@ -33,7 +33,7 @@ function App() {
           </Routes>
         </main>
 
-        <footer className="footer text-muted" style={{ marginTop: '0', paddingTop: '5' }}>
+        <footer className="footer text-muted" style={{ marginTop: '0', paddingTop: '2', paddingBottom: '4'}}>
           <div className="container">
             &copy; {new Date().getFullYear()} - The Squirrel Cannon
           </div>
