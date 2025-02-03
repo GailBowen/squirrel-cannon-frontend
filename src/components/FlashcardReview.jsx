@@ -48,7 +48,7 @@ function FlashcardReview() {
         <div className="container mt-4">
             <h2>Flashcard Review</h2>
             <div className="card">
-            <div className="mt-3 ms-4">
+            <div className="mt-1 ms-3">
                 Card {currentCardIndex + 1} of {flashcards.length}
             </div>
                 <div className="card-body">
@@ -68,8 +68,10 @@ function FlashcardReview() {
                         <button className="btn btn-primary" onClick={handleCheckAnswer}>Check Answer</button>
                     ) : (
                         <>
-                            <h5 className="mt-4">Correct Answer:</h5>
-                            <p>{currentCard.answer}</p>
+                            
+                            {userAnswer.toLowerCase().trim() !== currentCard.answer.toLowerCase().trim() && (
+                                <p>The correct answer: <b>{currentCard.answer}</b></p>
+                            )}
                             <p>{userAnswer.toLowerCase().trim() === currentCard.answer.toLowerCase().trim() ?
                                 "Correct!" : "Incorrect. Try again next time!"}
                             </p>
