@@ -44,13 +44,23 @@ function FlashcardReview() {
         setShowResult(false);
     };
 
+    const cardStyle = {
+        width: '50%',
+        margin: '0 auto',
+    };
+
+    const cardNumberStyle = {
+        textAlign: 'center',
+        margin: '10px 0'
+    };
+
     return (
         <div className="container mt-4">
             <h2>Flashcard Review</h2>
-            <div className="card">
-            <div className="mt-1 ms-3">
+            <div style={cardNumberStyle}>
                 Card {currentCardIndex + 1} of {flashcards.length}
             </div>
+            <div className="card" style={cardStyle}>
                 <div className="card-body">
                     <h5 className="card-title">Question:</h5>
                     <p className="card-text">{currentCard.question}</p>
@@ -68,7 +78,6 @@ function FlashcardReview() {
                         <button className="btn btn-primary" onClick={handleCheckAnswer}>Check Answer</button>
                     ) : (
                         <>
-                            
                             {userAnswer.toLowerCase().trim() !== currentCard.answer.toLowerCase().trim() && (
                                 <p>The correct answer: <b>{currentCard.answer}</b></p>
                             )}
@@ -80,8 +89,10 @@ function FlashcardReview() {
                     )}
                 </div>
             </div>
-          
-            <BoxStatsChart />
+            
+            <div className="mt-3">
+                <BoxStatsChart />
+            </div>
         </div>
     );
 }
