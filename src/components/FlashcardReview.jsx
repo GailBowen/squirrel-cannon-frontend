@@ -91,7 +91,7 @@ function FlashcardReview() {
             </div>
             
             <div className="mt-3">
-                <BoxStatsChart />
+              <BoxStatsChart subjectId={subjectId} />
             </div>
         </div>
     );

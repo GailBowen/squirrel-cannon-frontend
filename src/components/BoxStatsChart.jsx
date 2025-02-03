@@ -1,25 +1,36 @@
 import React, { useEffect } from 'react';
-
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LabelList } from 'recharts';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBoxStats, fetchSubjectBoxStats } from '../store/boxStatusSlice'; // NEW: Added subject fetch
 
-import { useDispatch , useSelector } from 'react-redux';
-
-import { fetchBoxStats } from '../store/boxStatusSlice';
-
-export default function BoxStatsChart() {
-   
+export default function BoxStatsChart({ subjectId }) { // NEW: Added subjectId prop
     const dispatch = useDispatch();
+    const { 
+        globalStats, 
+        subjectStats,
+        globalStatus,
+        subjectStatus,
+        error 
+    } = useSelector(state => state.boxStats);
 
-    const { stats, status, error } = useSelector(state  => state.boxStats);
+    // NEW: Dynamic stats selection
+    const stats = subjectId ? subjectStats : globalStats;
+    const status = subjectId ? subjectStatus : globalStatus;
 
     useEffect(() => {
-        if (status === 'idle') {
-            dispatch(fetchBoxStats());
+        if (subjectId) {
+            if (subjectStatus === 'idle') {
+                dispatch(fetchSubjectBoxStats(subjectId));
+            }
+        } else {
+            if (globalStatus === 'idle') {
+                dispatch(fetchBoxStats());
+            }
         }
-    }, [status, dispatch]);
+    }, [subjectId, globalStatus, subjectStatus, dispatch]);
 
     if (status === 'loading') return <div>Loading statistics ...</div>;
-    if (status ===  'failed') return <div>Error: {error}</div>;
+    if (status === 'failed') return <div>Error: {error}</div>;
 
     return (
         <div style={{ 
@@ -37,6 +48,7 @@ export default function BoxStatsChart() {
                     data={stats}
                     margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                 >
+                    {/* Rest of chart code remains the same */}
                     <CartesianGrid strokeDasharray="3 3"/>
                     <XAxis 
                         dataKey="box"
@@ -55,10 +67,8 @@ export default function BoxStatsChart() {
                             return words[value] || value;
                         }}
                     />
-                    <YAxis 
-                       
-                    />
-                   <Tooltip 
+                    <YAxis />
+                    <Tooltip 
                         cursor={false}
                         content={({ payload }) => {
                             if (!payload || !payload.length) return null;
@@ -77,19 +87,14 @@ export default function BoxStatsChart() {
                     <Bar 
                         dataKey="count"
                         fill="#C17F59"
-                        name="Number of Cards">
-
-                    <LabelList
-                        dataKey="count"
-                        position="top"
-                        fill="#C17F59"
-                        >
-                    </LabelList>
-
+                        name="Number of Cards"
+                    >
+                        <LabelList
+                            dataKey="count"
+                            position="top"
+                            fill="#C17F59"
+                        />
                     </Bar>
-                        
-                    
-                   
                 </BarChart>
             </ResponsiveContainer>
         </div>
