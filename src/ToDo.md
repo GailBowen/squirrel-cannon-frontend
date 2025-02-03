@@ -1,6 +1,7 @@
-- [ ] Fix buttons going blue on focus!
+- [x] Fix buttons going blue on focus!
 - [ ] Tab order needs sorting.
 - [ ] Show how many right today in this subject and overall!
 - [x] Title says 'Vite + React'.
 - [ ] Check Azure DB costs.
 - [ ] If there is only one card left for today, it repeats that card.
+- [ ] In subject show totals for that subject
