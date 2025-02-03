@@ -20,16 +20,15 @@ export const fetchSubjectBoxStats = createAsyncThunk(
 const boxStatsSlice = createSlice({
     name: 'boxStats',
     initialState: {
-        globalStats: [],    // NEW: For all subjects
-        subjectStats: [],   // NEW: For specific subject
-        globalStatus: 'idle',  // NEW: Separate status
-        subjectStatus: 'idle', // NEW: Separate status
+        globalStats: [],   
+        subjectStats: [],  
+        globalStatus: 'idle', 
+        subjectStatus: 'idle',
         error: null
     },
     reducers: {},
     extraReducers: (builder) => {
         builder
-            // NEW: Global stats cases
             .addCase(fetchBoxStats.pending, (state) => {
                 state.globalStatus = 'loading';
             })
@@ -41,7 +40,6 @@ const boxStatsSlice = createSlice({
                 state.globalStatus = 'failed';
                 state.error = action.error.message;
             })
-            // NEW: Subject stats cases
             .addCase(fetchSubjectBoxStats.pending, (state) => {
                 state.subjectStatus = 'loading';
             })

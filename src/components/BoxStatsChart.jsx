@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LabelList } from 'recharts';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBoxStats, fetchSubjectBoxStats } from '../store/boxStatusSlice'; // NEW: Added subject fetch
+import { fetchBoxStats, fetchSubjectBoxStats } from '../store/boxStatusSlice'; 
 
-export default function BoxStatsChart({ subjectId }) { // NEW: Added subjectId prop
+export default function BoxStatsChart({ subjectId }) { 
     const dispatch = useDispatch();
     const { 
         globalStats, 
@@ -13,7 +13,7 @@ export default function BoxStatsChart({ subjectId }) { // NEW: Added subjectId p
         error 
     } = useSelector(state => state.boxStats);
 
-    // NEW: Dynamic stats selection
+
     const stats = subjectId ? subjectStats : globalStats;
     const status = subjectId ? subjectStatus : globalStatus;
 
