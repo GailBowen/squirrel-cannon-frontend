@@ -48,6 +48,9 @@ function FlashcardReview() {
         <div className="container mt-4">
             <h2>Flashcard Review</h2>
             <div className="card">
+            <div className="mt-3 ms-4">
+                Card {currentCardIndex + 1} of {flashcards.length}
+            </div>
                 <div className="card-body">
                     <h5 className="card-title">Question:</h5>
                     <p className="card-text">{currentCard.question}</p>
@@ -75,9 +78,7 @@ function FlashcardReview() {
                     )}
                 </div>
             </div>
-            <div className="mt-3">
-                Card {currentCardIndex + 1} of {flashcards.length}
-            </div>
+          
             <BoxStatsChart />
         </div>
     );
