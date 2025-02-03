@@ -4,4 +4,6 @@
 - [x] Title says 'Vite + React'.
 - [ ] Check Azure DB costs.
 - [ ] If there is only one card left for today, it repeats that card.
-- [ ] In subject show totals for that subject
+- [x] In subject show totals for that subject
+- [ ] Show what cannon a card is from before it's answered
+- [ ] Refactor the code

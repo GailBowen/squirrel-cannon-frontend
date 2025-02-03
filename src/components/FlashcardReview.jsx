@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchFlashcards, reviewCard, nextCard } from '../store/flashcardsSlice';
-import { fetchBoxStats } from '../store/boxStatusSlice';
+import { fetchSubjectBoxStats } from '../store/boxStatusSlice';
 import BoxStatsChart from '../components/BoxStatsChart';
 
 function FlashcardReview() {
@@ -14,7 +14,7 @@ function FlashcardReview() {
 
     useEffect(() => {
         dispatch(fetchFlashcards(subjectId));
-        dispatch(fetchBoxStats());
+        dispatch(fetchSubjectBoxStats(subjectId));
     }, [dispatch, subjectId]);
 
     if (status === 'loading') {
@@ -34,7 +34,7 @@ function FlashcardReview() {
     const handleCheckAnswer = async () => {
         const isCorrect = userAnswer.toLowerCase().trim() === currentCard.answer.toLowerCase().trim();
         await dispatch(reviewCard({ id: currentCard.id, correct: isCorrect }));
-        dispatch(fetchBoxStats());
+        dispatch(fetchSubjectBoxStats(subjectId));
         setShowResult(true);
     };
 
