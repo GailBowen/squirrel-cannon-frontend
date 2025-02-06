@@ -7,8 +7,3 @@
 - [ ] Refactor the code
 - [ ] Create unit tests in both frontend and API
 - [ ] Second bar on the chart showing state of play yesterday
-
-
-
-
-Done
