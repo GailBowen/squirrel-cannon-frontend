@@ -1,9 +1,14 @@
-- [x] Fix buttons going blue on focus!
+- [ ] Fix buttons going blue on focus! - Still a problem
 - [ ] Tab order needs sorting.
 - [ ] Show how many right today in this subject and overall!
-- [x] Title says 'Vite + React'.
 - [ ] Check Azure DB costs.
 - [ ] If there is only one card left for today, it repeats that card.
-- [x] In subject show totals for that subject
 - [ ] Show what cannon a card is from before it's answered
 - [ ] Refactor the code
+- [ ] Create unit tests in both frontend and API
+- [ ] Second bar on the chart showing state of play yesterday
+
+
+
+
+Done
