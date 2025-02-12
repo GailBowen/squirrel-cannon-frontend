@@ -44,6 +44,13 @@ function FlashcardReview() {
         setShowResult(false);
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && !showResult) {
+            e.preventDefault();
+            handleCheckAnswer();
+        }
+    }
+
     const cardStyle = {
         width: '50%',
         margin: '0 auto',
@@ -70,6 +77,7 @@ function FlashcardReview() {
                             className="form-control"
                             value={userAnswer}
                             onChange={(e) => setUserAnswer(e.target.value)}
+                            onKeyDown={handleKeyDown}
                             placeholder="Type your answer here"
                             disabled={showResult}
                         />
@@ -89,9 +97,9 @@ function FlashcardReview() {
                     )}
                 </div>
             </div>
-            
+
             <div className="mt-3">
-              <BoxStatsChart subjectId={subjectId} />
+                <BoxStatsChart subjectId={subjectId} />
             </div>
         </div>
     );
