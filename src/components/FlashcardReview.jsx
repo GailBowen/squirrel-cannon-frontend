@@ -45,11 +45,15 @@ function FlashcardReview() {
     };
 
     const handleKeyDown = (e) => {
-        if (e.key === 'Enter' && !showResult) {
-            e.preventDefault();
-            handleCheckAnswer();
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Prevent default behavior
+            if (showResult) {
+                handleNextCard(); // Trigger Next Card if result is shown
+            } else {
+                handleCheckAnswer(); // Trigger Check Answer otherwise
+            }
         }
-    }
+    };
 
     const cardStyle = {
         width: '50%',
@@ -74,12 +78,15 @@ function FlashcardReview() {
                     <div className="form-group mb-4">
                         <input
                             type="text"
-                            className="form-control"
+                            className={`form-control ${showResult ? 'bg-light' : ''}`}
                             value={userAnswer}
-                            onChange={(e) => setUserAnswer(e.target.value)}
+                            onChange={(e) => {
+                                if (!showResult) {
+                                    setUserAnswer(e.target.value); // Only update the answer if showResult is false
+                                }
+                            }}
                             onKeyDown={handleKeyDown}
                             placeholder="Type your answer here"
-                            disabled={showResult}
                         />
                     </div>
                     {!showResult ? (
