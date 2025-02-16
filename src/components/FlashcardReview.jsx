@@ -55,26 +55,16 @@ function FlashcardReview() {
         }
     };
 
-    const cardStyle = {
-        width: '50%',
-        margin: '0 auto',
-    };
-
-    const cardNumberStyle = {
-        textAlign: 'center',
-        margin: '10px 0'
-    };
-
     return (
         <div className="container mt-4">
             <h2>Flashcard Review</h2>
-            <div style={cardNumberStyle}>
+            <div className="card-number">
                 Card {currentCardIndex + 1} of {flashcards.length}
             </div>
-            <div className="card" style={cardStyle}>
-                <div className="card-body">
-                    <h5 className="card-title">Question:</h5>
-                    <p className="card-text">{currentCard.question}</p>
+            <div className="flashcard-container">
+                <div className="flashcard">
+                    <h5 className="question-title">Question:</h5>
+                    <p className="question-text">{currentCard.question}</p>
                     <div className="form-group mb-4">
                         <input
                             type="text"
@@ -86,7 +76,6 @@ function FlashcardReview() {
                                 }
                             }}
                             onKeyDown={handleKeyDown}
-
                         />
                     </div>
                     {!showResult ? (
