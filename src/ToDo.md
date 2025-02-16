@@ -1,8 +1,8 @@
+- [ ] It's repeating cards in the react version - regives ones that have been asked today!!!!!!
 - [ ] Fix buttons going blue on focus! - Still a problem
-- [ ] Tab order needs sorting.
+- [x] Tab order needs sorting.
 - [ ] Show how many right today in this subject and overall!
 - [ ] Check Azure DB costs.
-- [ ] If there is only one card left for today, it repeats that card.
 - [ ] Show what cannon a card is from before it's answered
 - [ ] Refactor the code
 - [ ] Create unit tests in both frontend and API
