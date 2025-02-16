@@ -86,7 +86,7 @@ function FlashcardReview() {
                                 }
                             }}
                             onKeyDown={handleKeyDown}
-                            placeholder="Type your answer here"
+
                         />
                     </div>
                     {!showResult ? (
