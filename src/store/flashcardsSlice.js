@@ -18,10 +18,14 @@ export const createFlashcard = createAsyncThunk('flashcards/createFlashcard', as
 
 const flashcardsSlice = createSlice({
     name: 'flashcards',
-    initialState: { flashcards: [], currentCardIndex: 0, status: 'idle', error: null },
+    initialState: { flashcards: [], currentCardIndex: 0, status: 'idle', error: null, reviewCompleted: false },
     reducers: {
         nextCard: (state) => {
-            state.currentCardIndex = (state.currentCardIndex + 1) % state.flashcards.length
+            if (state.currentCardIndex < state.flashcards.length - 1) {
+                state.currentCardIndex += 1;
+            } else {
+                state.reviewCompleted = true;
+            }
         },
     },
     extraReducers: (builder) => {
@@ -33,6 +37,7 @@ const flashcardsSlice = createSlice({
                 state.status = 'succeeded'
                 state.flashcards = action.payload
                 state.currentCardIndex = 0
+                state.reviewCompleted = false
             })
             .addCase(fetchFlashcards.rejected, (state, action) => {
                 state.status = 'failed'

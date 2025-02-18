@@ -1,4 +1,4 @@
-- [ ] It's repeating cards in the react version - regives ones that have been asked today!!!!!!
+- [x] It's repeating cards in the react version - regives ones that have been asked today!!!!!!
 - [ ] Fix buttons going blue on focus! - Still a problem
 - [x] Tab order needs sorting.
 - [ ] Show how many right today in this subject and overall!
@@ -6,4 +6,4 @@
 - [ ] Show what cannon a card is from before it's answered
 - [ ] Refactor the code
 - [ ] Create unit tests in both frontend and API
-- [ ] Second bar on the chart showing state of play yesterday
+- [ ] Second bar on the chart showing state of play yesterday or second chart??
