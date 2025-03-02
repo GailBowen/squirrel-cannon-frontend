@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchFlashcards, reviewCard, nextCard } from '../store/flashcardsSlice';
-import { fetchSubjectBoxStats } from '../store/boxStatusSlice';
+import { fetchSubjectBoxStats, fetchSubjectBoxStatsToday } from '../store/boxStatusSlice';
 import BoxStatsChart from '../components/BoxStatsChart';
 
 function FlashcardReview() {
@@ -14,7 +14,7 @@ function FlashcardReview() {
 
     useEffect(() => {
         dispatch(fetchFlashcards(subjectId));
-        dispatch(fetchSubjectBoxStats(subjectId));
+        dispatch(fetchSubjectBoxStatsToday(subjectId, true));
     }, [dispatch, subjectId]);
 
     if (status === 'loading') {
@@ -35,7 +35,8 @@ function FlashcardReview() {
                 <h2>Review Completed</h2>
                 <p>You have reviewed all flashcards for this subject.</p>
                 <div className="mt-3">
-                    <BoxStatsChart subjectId={subjectId} />
+                    <BoxStatsChart subjectId={subjectId} todayOnly={true} />
+
                 </div>
             </div>
         );
@@ -46,7 +47,7 @@ function FlashcardReview() {
     const handleCheckAnswer = async () => {
         const isCorrect = userAnswer.toLowerCase().trim() === currentCard.answer.toLowerCase().trim();
         await dispatch(reviewCard({ id: currentCard.id, correct: isCorrect }));
-        dispatch(fetchSubjectBoxStats(subjectId));
+        dispatch(fetchSubjectBoxStatsToday(subjectId, true));
         setShowResult(true);
     };
 
@@ -107,7 +108,8 @@ function FlashcardReview() {
             </div>
 
             <div className="mt-3">
-                <BoxStatsChart subjectId={subjectId} />
+                <BoxStatsChart subjectId={subjectId} todayOnly={true} />
+
             </div>
         </div>
     );

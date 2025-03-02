@@ -9,6 +9,14 @@ export const fetchBoxStats = createAsyncThunk(
     }
 );
 
+export const fetchBoxStatsToday = createAsyncThunk(
+    'boxStatus/fetchBoxStatsToday',
+    async () => {
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/flashcard/box-stats/todayOnly=true`)
+        return response.data;
+    }
+);
+
 export const fetchSubjectBoxStats = createAsyncThunk(
     'boxStatus/fetchSubjectBoxStats',
     async (subjectId) => {
@@ -17,12 +25,20 @@ export const fetchSubjectBoxStats = createAsyncThunk(
     }
 );
 
+export const fetchSubjectBoxStatsToday = createAsyncThunk(
+    'boxStatus/fetchSubjectBoxStatsToday',
+    async (subjectId) => {
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/flashcard/box-stats/${subjectId}?todayOnly=true`)
+        return response.data;
+    }
+);
+
 const boxStatsSlice = createSlice({
     name: 'boxStats',
     initialState: {
-        globalStats: [],   
-        subjectStats: [],  
-        globalStatus: 'idle', 
+        globalStats: [],
+        subjectStats: [],
+        globalStatus: 'idle',
         subjectStatus: 'idle',
         error: null
     },
@@ -40,6 +56,17 @@ const boxStatsSlice = createSlice({
                 state.globalStatus = 'failed';
                 state.error = action.error.message;
             })
+            .addCase(fetchBoxStatsToday.pending, (state) => {
+                state.globalStatus = 'loading';
+            })
+            .addCase(fetchBoxStatsToday.fulfilled, (state, action) => {
+                state.globalStatus = 'succeeded';
+                state.globalStats = action.payload;
+            })
+            .addCase(fetchBoxStatsToday.rejected, (state, action) => {
+                state.globalStatus = 'failed';
+                state.error = action.error.message;
+            })
             .addCase(fetchSubjectBoxStats.pending, (state) => {
                 state.subjectStatus = 'loading';
             })
@@ -48,6 +75,17 @@ const boxStatsSlice = createSlice({
                 state.subjectStats = action.payload;
             })
             .addCase(fetchSubjectBoxStats.rejected, (state, action) => {
+                state.subjectStatus = 'failed';
+                state.error = action.error.message;
+            })
+            .addCase(fetchSubjectBoxStatsToday.pending, (state) => {
+                state.subjectStatus = 'loading';
+            })
+            .addCase(fetchSubjectBoxStatsToday.fulfilled, (state, action) => {
+                state.subjectStatus = 'succeeded';
+                state.subjectStats = action.payload;
+            })
+            .addCase(fetchSubjectBoxStatsToday.rejected, (state, action) => {
                 state.subjectStatus = 'failed';
                 state.error = action.error.message;
             });

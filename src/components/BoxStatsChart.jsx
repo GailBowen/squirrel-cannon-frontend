@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LabelList } from 'recharts';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBoxStats, fetchSubjectBoxStats } from '../store/boxStatusSlice';
+import { fetchBoxStats, fetchBoxStatsToday, fetchSubjectBoxStats, fetchSubjectBoxStatsToday } from '../store/boxStatusSlice';
 
-export default function BoxStatsChart({ subjectId }) {
+export default function BoxStatsChart({ subjectId, todayOnly }) {
     const dispatch = useDispatch();
+
+    console.log('todayOnly', todayOnly);
     const {
         globalStats,
         subjectStats,
@@ -27,12 +29,25 @@ export default function BoxStatsChart({ subjectId }) {
 
     useEffect(() => {
         if (subjectId) {
+            console.log('subjectId', subjectId);
             if (subjectStatus === 'idle') {
-                dispatch(fetchSubjectBoxStats(subjectId));
+                if (todayOnly) {
+                    console.log('got here indeed');
+                    dispatch(fetchSubjectBoxStatsToday(subjectId, true));
+                }
+                else {
+                    dispatch(fetchSubjectBoxStats(subjectId));
+                }
+
             }
         } else {
+            console.log('ticketer');
             if (globalStatus === 'idle') {
-                dispatch(fetchBoxStats());
+                if (todayOnly) {
+                    dispatch(fetchBoxStatsToday());
+                } else {
+                    dispatch(fetchBoxStats());
+                }
             }
         }
     }, [subjectId, globalStatus, subjectStatus, dispatch]);
