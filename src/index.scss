@@ -1,0 +1,147 @@
+$primary-color: #C17F59;
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #213547;
+    background-color: #ffffff;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #213547;
+    text-align: center;
+}
+
+.container {
+    max-width: 1140px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.navbar {
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 2rem;
+    background-color: #fff;
+}
+
+.navbar-brand {
+    color: #213547;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-link {
+    color: #213547;
+    text-decoration: none;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #213547;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #4a5568;
+}
+
+.btn {
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary,
+.btn-success {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    background-color: #A66B47;
+    border-color: #A66B47;
+    color: #fff;
+}
+
+.btn:focus,
+.btn:active,
+.btn-primary:focus,
+.btn-success:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 0.25rem rgba(247, 181, 56, 0.5) !important;
+    border-color: transparent !important;
+}
+
+.btn:active:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 0.25rem rgba(247, 181, 56, 0.5) !important;
+    border-color: transparent !important;
+}
+
+
+
+.footer {
+    margin-top: 3rem;
+    padding: 1rem 0;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    color: #6c757d;
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
