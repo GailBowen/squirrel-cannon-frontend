@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchFlashcards, reviewCard, nextCard } from '../store/flashcardsSlice';
 import { fetchSubjectBoxStats } from '../store/boxStatusSlice';
 import BoxStatsChart from '../components/BoxStatsChart';
+import CorrectTodayCounter from '../components/CorrectTodayCounter';
 
 function FlashcardReview() {
     const { subjectId } = useParams();
@@ -11,6 +12,7 @@ function FlashcardReview() {
     const { flashcards, currentCardIndex, status, error, reviewCompleted } = useSelector(state => state.flashcards);
     const [userAnswer, setUserAnswer] = useState('');
     const [showResult, setShowResult] = useState(false);
+    const counterRef = useRef();
 
     useEffect(() => {
         dispatch(fetchFlashcards(subjectId));
@@ -48,6 +50,11 @@ function FlashcardReview() {
         await dispatch(reviewCard({ id: currentCard.id, correct: isCorrect }));
         dispatch(fetchSubjectBoxStats(subjectId));
         setShowResult(true);
+
+        // Refresh the correct answers counter
+        if (counterRef.current) {
+            counterRef.current.refresh();
+        }
     };
 
     const handleNextCard = () => {
@@ -70,6 +77,7 @@ function FlashcardReview() {
     return (
         <div className="container mt-4">
             <h2>Flashcard Review</h2>
+            <CorrectTodayCounter ref={counterRef} />
             <div className="card-number">
                 Card {currentCardIndex + 1} of {flashcards.length}
             </div>
